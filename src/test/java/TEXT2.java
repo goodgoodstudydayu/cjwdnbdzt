@@ -15,6 +15,5 @@ public class TEXT2 {
         for(List<Integer> row:table){
             System.out.println(row);
         }
-
     }
 }

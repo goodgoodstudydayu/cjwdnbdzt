@@ -12,12 +12,62 @@
             <id>cloudera</id>
             <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
         </repository>
+            <repository>
+                <id>central</id>
+                <name>aliyun maven</name>
+                <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+                <layout>default</layout>
+                <!-- 是否开启发布版构件下载 -->
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+                <!-- 是否开启快照版构件下载 -->
+                <snapshots>
+                    <enabled>false</enabled>
+                </snapshots>
+            </repository>
     </repositories>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+        </dependency>
+
+        <!--swagger-ui-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <!--swagger-ui-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <!--springboot web模块-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.5.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+            <version>3.5.2</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
@@ -104,9 +154,9 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-<!--                    <archive>-->
-<!--                        <manifest></manifest>-->
-<!--                    </archive>-->
+                    <!--                    <archive>-->
+                    <!--                        <manifest></manifest>-->
+                    <!--                    </archive>-->
                 </configuration>
 
                 <executions>
@@ -119,35 +169,35 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-                <version>3.2.2</version>
-                <configuration>
-                    <recompileMode>incremental</recompileMode>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.scala-tools</groupId>-->
-<!--                <artifactId>maven-scala-plugin</artifactId>-->
-<!--                <version>2.15.2</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>compile</goal>-->
-<!--                            <goal>testCompile</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>net.alchim31.maven</groupId>-->
+            <!--                <artifactId>scala-maven-plugin</artifactId>-->
+            <!--                <version>3.2.2</version>-->
+            <!--                <configuration>-->
+            <!--                    <recompileMode>incremental</recompileMode>-->
+            <!--                </configuration>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <goals>-->
+            <!--                            <goal>compile</goal>-->
+            <!--                            <goal>testCompile</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.scala-tools</groupId>-->
+            <!--                <artifactId>maven-scala-plugin</artifactId>-->
+            <!--                <version>2.15.2</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <goals>-->
+            <!--                            <goal>compile</goal>-->
+            <!--                            <goal>testCompile</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
 
         </plugins>
     </build>
